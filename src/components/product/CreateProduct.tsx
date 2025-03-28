@@ -11,7 +11,8 @@ import { Form, validationScheme } from '../../validationScheme'
 import Back from '../buttons/Back'
 
 const descriptions: Partial<Record<Path<Form>, string>> = {
-	category: 'Specify the categories separated by commas'
+	category: 'Specify the categories separated by commas',
+	description: 'You can use HTML tags (<p>, <em>, etc.)'
 }
 
 const firstCharToUpper = (str: string) => {
@@ -33,7 +34,6 @@ export const CreateProduct = () => {
 		console.log(data)
 		const product: Product = {
 			...data,
-			description: data.description || null,
 			credit_line: data.collection,
 			date_display: data.display_date,
 			artist_title: data.artist,

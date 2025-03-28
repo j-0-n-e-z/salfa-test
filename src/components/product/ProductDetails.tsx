@@ -9,7 +9,7 @@ import {
 	setProduct
 } from '../../redux/slices/productSlice'
 import { selectProducts } from '../../redux/slices/productsSlice'
-import { fetchProduct } from '../../redux/thunks'
+import { fetchProduct } from '../../redux/thunks/fetchProduct'
 import Back from '../buttons/Back'
 import { ErrorPage } from '../ErrorPage'
 
@@ -23,7 +23,7 @@ const ProductDetails: FC = () => {
 	useEffect(() => {
 		if (id) {
 			const productFromStore = products?.data.find(
-				(p) => p.id.toString() === id
+				(product) => product.id.toString() === id
 			)
 			if (productFromStore) {
 				dispatch(setProduct(productFromStore))
@@ -68,7 +68,7 @@ const ProductDetails: FC = () => {
 					<Text
 						dangerouslySetInnerHTML={{
 							__html:
-								product.description?.replace(/<\/?p>/g, '') ??
+								product.description?.replace(/<\/?p>/g, '') ||
 								'<em>Description is missing</em>'
 						}}
 					/>

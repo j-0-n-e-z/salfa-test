@@ -7,7 +7,7 @@ const Back: FC = () => {
 
 	function onBackClick() {
 		window.scrollTo(0, 0)
-		navigate('/products')
+		navigate('/products', { replace: true })
 	}
 
 	return (

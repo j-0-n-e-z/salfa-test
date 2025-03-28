@@ -1,7 +1,7 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { type Product } from '../../types'
 import { type RootState } from '../store'
-import { fetchProduct } from '../thunks'
+import { fetchProduct } from '../thunks/fetchProduct'
 
 export interface ProductState {
 	product: Product | null

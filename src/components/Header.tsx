@@ -17,7 +17,7 @@ export const Header = () => {
 		>
 			<Container h='100%' w='100vw'>
 				<Flex h='100%' justify='center' align='center'>
-					<Text c='white' fw='bold' size='xl'>
+					<Text c='white' fw='bold' size='xl' ta='center'>
 						{title}
 					</Text>
 				</Flex>

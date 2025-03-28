@@ -10,10 +10,9 @@ import Like from '../buttons/Like'
 
 interface ProductCardProps {
 	product: Product
-	isLiked: boolean
 }
 
-const ProductCard: FC<ProductCardProps> = ({ product, isLiked = false }) => {
+const ProductCard: FC<ProductCardProps> = ({ product }) => {
 	const { hovered, ref } = useHover()
 	const dispatch = useAppDispatch()
 
@@ -63,11 +62,9 @@ const ProductCard: FC<ProductCardProps> = ({ product, isLiked = false }) => {
 				<Box pos='absolute' right={10} top={10}>
 					<Like isLiked={!!product.isLiked} onClick={onLikeClick} />
 				</Box>
-				{!isLiked && (
-					<Box pos='absolute' left={10} top={10}>
-						<Delete onClick={onDeleteClick} />
-					</Box>
-				)}
+				<Box pos='absolute' left={10} top={10}>
+					<Delete onClick={onDeleteClick} />
+				</Box>
 			</Card>
 		</Link>
 	)
