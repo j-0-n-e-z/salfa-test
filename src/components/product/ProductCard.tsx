@@ -52,7 +52,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 					<Image
 						src={`https://www.artic.edu/iiif/2/${product.image_id}/full/843,/0/default.jpg`}
 						height={200}
-						fallbackSrc='src/assets/placeholder.png'
+						fallbackSrc='./assets/placeholder.png'
 						style={{ objectPosition: 'top' }}
 					/>
 				</Card.Section>
