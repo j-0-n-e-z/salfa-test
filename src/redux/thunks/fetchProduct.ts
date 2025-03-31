@@ -12,11 +12,13 @@ export const fetchProduct = createAsyncThunk<
 		const response = await axios.get<{ data: Product }>(getProductUrl(id))
 		return response.data
 	} catch (e) {
-		const axiosError = e as AxiosError
-		return thunkApi.rejectWithValue({
-			message: axiosError.message,
-			code: axiosError.code,
-			status: axiosError.response?.status
-		})
+		if (e instanceof AxiosError) {
+			return thunkApi.rejectWithValue({
+				message: e.message,
+				code: e.code,
+				status: e.response?.status
+			})
+		}
+		return thunkApi.rejectWithValue({ message: (e as Error).message })
 	}
 })
